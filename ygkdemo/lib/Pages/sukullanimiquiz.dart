@@ -14,63 +14,57 @@ class Question {
   });
 }
 
-class AtikQuestion extends StatefulWidget {
-  const AtikQuestion({super.key});
+class SuKullanimiQuestion extends StatefulWidget {
+  const SuKullanimiQuestion({super.key});
 
   @override
-  State<AtikQuestion> createState() => _AtikState();
+  State<SuKullanimiQuestion> createState() => _SuState();
 }
 
-class _AtikState extends State<AtikQuestion> {
+class _SuState extends State<SuKullanimiQuestion> {
   // Soruların listesi
   final List<Question> questions = [
     Question(
-      questionText: "Plastik atıklar, doğada tamamen çözünmesi için 1000 yıla kadar süreye ihtiyaç duyabilir.",
+      questionText: "Günlük hayatta su tasarrufu sağlamak için hangisi yapılabilir?",
+      options: ["Muslukları açık bırakmak", "Diş fırçalarken suyu kapatmak","Çamaşır makinelerini yarı dolu çalıştırmak","Su kaçaklarını göz ardı etmek"],
+      correctAnswer: "Diş fırçalarken suyu kapatmak",
+      imagePath: "images/su.png", // Resim yolunu burada veriyoruz
+    ),
+    Question(
+      questionText: "Hangi sektörde en fazla su tüketilmektedir?",
+      options: ["Evsel kullanım", "Tarım", "Endüstri", "Enerji üretimi"],
+      correctAnswer: "Tarım",
+      imagePath: "images/sukullanimi.png", // Farklı resim yolu
+    ),
+    Question(
+      questionText: "Deniz suyunu tuzdan arındırmak, tatlı su kaynaklarını artırmanın bir yoludur",
       options: ["Doğru", "Yanlış"],
       correctAnswer: "Doğru",
-      imagePath: "images/plastik_atik.png",
+      imagePath: "images/denizsuyu.png", // Farklı resim yolu
     ),
     Question(
-      questionText: "Aşağıdakilerden hangisi geri dönüştürülebilen bir atık değildir?",
-      options: ["Cam şişe", "Karton kutu", "Organik atık", "Alüminyum kutu"],
-      correctAnswer: "Organik atık",
-      imagePath: "images/geri_dönüsüm.png",
-    ),
-    Question(
-      questionText: "Aşağıdakilerden hangisi “tehlikeli atık” olarak sınıflandırılır?",
-      options: ["Cam şişe", "Pil", "Plastik şişe", "Karton kutu"],
-      correctAnswer: "Pil",
-      imagePath: "images/tehlike.png",
-    ),
-    Question(
-      questionText: "Aşağıdakilerden hangisi kompost yapılabilir?",
-      options: ["Metal kutu", "Sebze ve meyve atıkları", "Plastik torbalar", "Cam kavanoz"],
-      correctAnswer: "Sebze ve meyve atıkları",
-      imagePath: "images/kompost.png",
-    ),
-    Question(
-      questionText: "Atık yağların lavabo ya da tuvaletlere dökülmesi durumunda hangi sorun ortaya çıkar?",
-      options: ["Su kaynakları kirlenir", "Toprak verimi artar", "Plastik atık miktarı azalır", "Enerji tüketimi azalır"],
-      correctAnswer: "Su kaynakları kirlenir",
-      imagePath: "images/atik_yag.png",
-    ),
-    Question(
-      questionText: "Geri dönüştürülmüş camdan üretilen yeni bir cam ürün, üretimde kaç kez geri dönüştürülebilir?",
-      options: ["1 kez", "5 kez", "10 kez", "Sınırsız kez"],
-      correctAnswer: "Sınırsız kez",
-      imagePath: "images/atik_cam.png",
-    ),
-    Question(
-      questionText: "Kağıt atıkların geri dönüştürülmesi, ormanların korunmasına katkı sağlar.",
+      questionText: "Küresel ısınma, tatlı su kaynaklarını olumsuz etkiler.",
       options: ["Doğru", "Yanlış"],
       correctAnswer: "Doğru",
-      imagePath: "images/kagit_atik.png",
+      imagePath: "images/küreselisinma.png", // Farklı resim yolu
     ),
     Question(
-      questionText: "Elektronik atıklar, içerdikleri değerli metaller nedeniyle geri dönüşüm için önemlidir.",
+      questionText: "Dünya’daki kullanılabilir tatlı su miktarı, toplam suyun yaklaşık yüzde kaçını oluşturur?",
+      options: ["%2,5", "%10", "%25", "%50"],
+      correctAnswer: "%2,5",
+      imagePath: "images/tatlisu.png", // Farklı resim yolu
+    ),
+    Question(
+      questionText: "Damlayan bir musluk, yılda binlerce litre su kaybına neden olabilir.",
       options: ["Doğru", "Yanlış"],
       correctAnswer: "Doğru",
-      imagePath: "images/elektronik_atik.png",
+      imagePath: "images/musluk.png", // Farklı resim yolu
+    ),
+    Question(
+      questionText: "Su tasarrufunun bireysel önlemlerle yapılması, genel su tüketimini önemli ölçüde etkilemez.",
+      options: ["Doğru", "Yanlış"],
+      correctAnswer: "Yanlış",
+      imagePath: "images/tasarruf.png", // Farklı resim yolu
     ),
   ];
 
@@ -125,7 +119,7 @@ class _AtikState extends State<AtikQuestion> {
                 const Spacer(),
                 // Ortalanmış yazı
                 const Text(
-                  "Atık Uygulamaları",
+                  "İklim Değişikliği",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 24.0,
