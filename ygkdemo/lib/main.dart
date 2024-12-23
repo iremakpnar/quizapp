@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ygkdemo/Admin/admin_login.dart';
 
-import 'package:ygkdemo/Pages/sukullanimiquiz.dart';
+import 'package:ygkdemo/Pages/kültürquiz.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SuKullanimiQuestion(),
+      home: GenelKulturQuestion(),
     );
   }
 }
