@@ -73,13 +73,22 @@ class _BilimState extends State<BilimQuestion> {
       imagePath: "images/akim.png",
     ),
   ];
-
   int currentIndex = 0; // Şu anki sorunun indexi
   String selectedAnswer = ""; // Kullanıcının seçtiği cevap
+  int score = 0; // Toplam puan
+  int correctAnswers = 0; // Doğru cevap sayısı
 
   // Soruyu güncellemek için bir fonksiyon
   void nextQuestion() {
     setState(() {
+      // Cevap kontrolü
+      if (selectedAnswer == questions[currentIndex].correctAnswer) {
+        score += 5; // Doğru cevap için 5 puan
+        correctAnswers++;
+      } else if (selectedAnswer.isNotEmpty) {
+        score -= 1; // Yanlış cevap için -1 puan
+      }
+
       if (currentIndex < questions.length - 1) {
         currentIndex++;
         selectedAnswer = ""; // Yeni soruya geçildiğinde cevabı sıfırlıyoruz
@@ -119,7 +128,23 @@ class _BilimState extends State<BilimQuestion> {
                     color: const Color(0xFFf35b32),
                     borderRadius: BorderRadius.circular(60),
                   ),
-                  child: const Icon(Icons.arrow_back, color: Colors.white, size: 27),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context); // Önceki sayfaya dön
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(6),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFf35b32),
+                        borderRadius: BorderRadius.circular(60),
+                      ),
+                      child: const Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                        size: 27,
+                      ),
+                    ),
+                  ),
                 ),
                 // Aradaki boşluk
                 const Spacer(),
@@ -149,10 +174,27 @@ class _BilimState extends State<BilimQuestion> {
               ),
               child: Column(
                 children: [
+                  // Skor ve Soru Bilgisi
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Soru: ${currentIndex + 1}/${questions.length}",
+                          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "Puan: $score",
+                          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
                   // Resim her soruya göre dinamik olarak değişiyor
                   Image.asset(
                     questions[currentIndex].imagePath, // Resmin yolunu buraya ekliyoruz
-                    height: 300,
+                    height: 250,
                     width: MediaQuery.of(context).size.width,
                   ),
                   Padding(
